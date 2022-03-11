@@ -27,7 +27,7 @@ const ShopCart = () => {
             <span>Total Items:</span> {state.itemsCounter}
           </p>
           <p>
-            <span>Total Payments:</span> {state.total} $
+            <span>Total Payments:</span> ${state.total}
           </p>
           <div className={styles.buttonContainer}>
             <button

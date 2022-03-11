@@ -21,7 +21,7 @@ const Cart = (props) => {
       <img className={styles.productImage} src={image} />
       <div className={styles.data}>
         <h3>{shorten(title)}</h3>
-        <p>{price} $</p>
+        <p>${price}</p>
       </div>
       <div>
         <span className={styles.quantity}>{quantity}</span>

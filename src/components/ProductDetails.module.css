@@ -1,12 +1,19 @@
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 150px 150px 50px;
   padding: 20px;
   border: 1px solid silver;
   background-color: #fff;
   border-radius: 10px;
+}
+
+.loading {
+  text-align: center;
+}
+
+.bodyContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .image {
