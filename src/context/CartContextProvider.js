@@ -12,7 +12,7 @@ const cartReducer = (state, action) => {
     case "ADD_ITEM":
       if (!state.selectedItems.find((item) => item.id === action.payload.id)) {
         state.selectedItems.push({
-          ...state.payload,
+          ...action.payload,
           quantity: 1,
         });
       }
