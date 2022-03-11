@@ -4,27 +4,29 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 
 // Functions
-import { shorten } from "../../helpers/function";
+import { shorten } from "../../helpers/functions";
 
 // Icons
 import trashIcon from "../../assets/icons/trash.svg";
 
+// Style
+import styles from "./Cart.module.css";
+
 const Cart = (props) => {
   const { dispatch } = useContext(CartContext);
-
   const { image, title, price, quantity } = props.data;
 
   return (
-    <div>
-      <img src={image} alt="Product" />
-      <div>
+    <div className={styles.container}>
+      <img className={styles.productImage} src={image} />
+      <div className={styles.data}>
         <h3>{shorten(title)}</h3>
-        <p>${price}</p>
+        <p>{price} $</p>
       </div>
       <div>
-        <span>{quantity}</span>
+        <span className={styles.quantity}>{quantity}</span>
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         {quantity > 1 ? (
           <button
             onClick={() => dispatch({ type: "DECREASE", payload: props.data })}
@@ -37,7 +39,7 @@ const Cart = (props) => {
               dispatch({ type: "REMOVE_ITEM", payload: props.data })
             }
           >
-            <img src={trashIcon} alt="TrashIcon" style={{ width: "20px" }} />
+            <img src={trashIcon} alt="trash" />
           </button>
         )}
         <button

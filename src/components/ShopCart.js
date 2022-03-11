@@ -7,45 +7,56 @@ import Cart from "./shared/Cart";
 // Context
 import { CartContext } from "../context/CartContextProvider";
 
+// Style
+import styles from "./ShopCart.module.css";
+
 const ShopCart = () => {
   const { state, dispatch } = useContext(CartContext);
 
   return (
-    <div>
-      <dic>
+    <div className={styles.container}>
+      <div className={styles.cartContainer}>
         {state.selectedItems.map((item) => (
           <Cart key={item.id} data={item} />
         ))}
-      </dic>
+      </div>
 
       {state.itemsCounter > 0 && (
-        <div>
+        <div className={styles.payments}>
           <p>
-            <span>Total Items :</span> {state.itemsCounter}
+            <span>Total Items:</span> {state.itemsCounter}
           </p>
           <p>
-            <span>Total Payments :</span> ${state.total}
+            <span>Total Payments:</span> {state.total} $
           </p>
-          <div>
-            <button onClick={() => dispatch({ type: "CLEAR" })}>Clear</button>
-            <button onClick={() => dispatch({ type: "CHECKOUT" })}>
-              Check Out
+          <div className={styles.buttonContainer}>
+            <button
+              className={styles.clear}
+              onClick={() => dispatch({ type: "CLEAR" })}
+            >
+              Clear
+            </button>
+            <button
+              className={styles.checkout}
+              onClick={() => dispatch({ type: "CHECKOUT" })}
+            >
+              Checkout
             </button>
           </div>
         </div>
       )}
 
-      {state.checkout && (
-        <div>
-          <h3>Checked Out Successfully</h3>
-          <Link to="/products">Buy M ore</Link>
+      {state.itemsCounter === 0 && !state.checkout && (
+        <div className={styles.complete}>
+          <h3>Want to buy?</h3>
+          <Link to="/products">Go to shop</Link>
         </div>
       )}
 
-      {!state.checkout && state.itemsCounter === 0 && (
-        <div>
-          <h3>Want to Buy?</h3>
-          <Link to="/products">Go to Shop</Link>
+      {state.checkout && (
+        <div className={styles.complete}>
+          <h3>Checked out successfully</h3>
+          <Link to="/products">Buy More</Link>
         </div>
       )}
     </div>
