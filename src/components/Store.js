@@ -11,7 +11,11 @@ const Store = () => {
 
   return (
     <div
-      style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+      }}
     >
       {products.map((product) => (
         <Product key={product.id} productData={product} />
