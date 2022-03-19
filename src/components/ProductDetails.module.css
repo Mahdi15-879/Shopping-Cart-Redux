@@ -94,7 +94,7 @@
 }
 
 @media (max-width: 1000px) {
-  .container {
+  .bodyContainer {
     flex-direction: column;
     justify-content: center;
   }
