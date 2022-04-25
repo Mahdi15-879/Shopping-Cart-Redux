@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-// Context
-import { ProductsContext } from "../context/ProductContextProvider";
-
 // API
 import { getProductsDetail } from "../services/api";
 
